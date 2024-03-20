@@ -98,6 +98,6 @@ input[type="color"]::-moz-color-swatch {
   cursor: pointer;
 }
 
-btn:hover {
+.btn:hover {
   background-color: #e0e9ff;
 }
