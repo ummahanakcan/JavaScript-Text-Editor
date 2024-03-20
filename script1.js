@@ -1,16 +1,18 @@
-let optionsButtons = document.querySelectorAll(".option-button");
-let advancedOptionButton = document.querySelectorAll(".adv-option-button");
-let fontName = document.getElementById("fontName");
-let fontSizeRef = document.getElementById("fontSize");
-let writingArea = document.getElementById("text-input");
-let linkButton = document.getElementById("createLink");
-let alignButtons = document.querySelectorAll(".align");
-let spacingButtons = document.querySelectorAll(".spacing");
-let formatButtons = document.querySelectorAll(".format");
-let scriptButtons = document.querySelectorAll(".script");
-let listButtons = document.querySelectorAll(".list");
-let foreColor = document.querySelector("#foreColor");
+const optionsButtons = document.querySelectorAll(".option-button");
+const advancedOptionButton = document.querySelectorAll(".adv-option-button");
+const fontName = document.getElementById("fontName");
+const fontSizeRef = document.getElementById("fontSize");
+const writingArea = document.getElementById("text-input");
+const linkButton = document.getElementById("createLink");
+const alignButtons = document.querySelectorAll(".align");
+const spacingButtons = document.querySelectorAll(".spacing");
+const formatButtons = document.querySelectorAll(".format");
+const scriptButtons = document.querySelectorAll(".script");
+const listButtons = document.querySelectorAll(".list");
+const foreColor = document.querySelector("#foreColor");
 const btn = document.querySelector(".btn");
+const totalNumber = document.querySelector("#total-number");
+const remainNumber = document.querySelector("#remain-number");
 
 const fontList = [
   "Arial",
@@ -86,8 +88,19 @@ const createOptionElement = (value) => {
   return option;
 };
 
+totalNumber.innerHTML = 0;
+remainNumber.innerHTML = writingArea.getAttribute("maxlength");
+
+writingArea.addEventListener("keyup", () => {
+  totalNumber.innerHTML = writingArea.innerText.length;
+  remainNumber.innerHTML =
+    writingArea.getAttribute("maxlength") - writingArea.innerText.length;
+});
+
 btn.onclick = () => {
   writingArea.innerHTML = "";
+  totalNumber.innerHTML = "";
+  remainNumber.innerHTML = "";
 };
 
 window.onload = intializer();

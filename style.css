@@ -101,3 +101,13 @@ input[type="color"]::-moz-color-swatch {
 .btn:hover {
   background-color: #e0e9ff;
 }
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+span {
+  padding: 5px;
+}
